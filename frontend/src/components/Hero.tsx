@@ -4,37 +4,25 @@ import { Link } from 'react-router-dom'
 const slides = [
   {
     image: '/images/hero-platform.jpg',
-    tag: 'Global · Upstream to Downstream',
-    title: (
-      <>
-        Energy services for operators <em>around the world</em>
-      </>
-    ),
-    text: 'Engineering, procurement, logistics and fuel supply for upstream, midstream and downstream projects — coordinated across five operating regions.',
+    title: 'Energy services for operators around the world',
+    href: '/services',
+    cta: 'Our services',
   },
   {
     image: '/images/hero-pipeline.jpg',
-    tag: 'Engineering · Procurement · Logistics',
-    title: (
-      <>
-        Exceptional Delivery to the <em>Highest Quality Standard</em>
-      </>
-    ),
-    text: 'From pipeline and storage facilities to construction and asset buy-back, we think to the end of every project we take on.',
+    title: 'Delivery to the highest quality standard',
+    href: '/about',
+    cta: 'Our company',
   },
   {
     image: '/images/hero-refinery.jpg',
-    tag: 'Downstream & Midstream Supply',
-    title: (
-      <>
-        Your Trusted <em>AGO, PMS &amp; LPG</em> Supply Partner
-      </>
-    ),
-    text: 'Dependable diesel supply, petrol at the best price, and LPG retail outlets serving businesses and final consumers.',
+    title: 'A trusted partner for fuel supply and logistics',
+    href: '/contact',
+    cta: 'Contact us',
   },
 ]
 
-const SLIDE_MS = 6500
+const SLIDE_MS = 7000
 
 export default function Hero() {
   const [index, setIndex] = useState(0)
@@ -47,7 +35,7 @@ export default function Hero() {
   const slide = slides[index]
 
   return (
-    <div className="hero">
+    <section className="hero" aria-label="Introduction">
       {slides.map((s, i) => (
         <div
           key={s.image}
@@ -56,16 +44,17 @@ export default function Hero() {
         />
       ))}
 
+      <div className="hero-wash" aria-hidden="true" />
+      <div className="hero-shapes" aria-hidden="true">
+        <span className="blob blob-right" />
+        <span className="blob blob-corner" />
+      </div>
+
       <div className="hero-content" key={index}>
-        <span className="hero-tag">{slide.tag}</span>
         <h1>{slide.title}</h1>
-        <p>{slide.text}</p>
         <div className="hero-actions">
-          <Link to="/services" className="btn btn-gold">
-            Explore Our Services <span className="arrow">→</span>
-          </Link>
-          <Link to="/contact" className="btn btn-outline">
-            Contact Us
+          <Link to={slide.href} className="btn btn-light">
+            {slide.cta}
           </Link>
         </div>
       </div>
@@ -80,6 +69,6 @@ export default function Hero() {
           />
         ))}
       </div>
-    </div>
+    </section>
   )
 }

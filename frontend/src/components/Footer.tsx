@@ -11,10 +11,6 @@ export default function Footer() {
           <div>
             <div className="footer-brand">
               <BrandMark />
-              <span className="brand-name">
-                Meridian
-                <small>Global Energy</small>
-              </span>
             </div>
             <p>
               A demonstration website for a global oil, gas and energy services company. Sample

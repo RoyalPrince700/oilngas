@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { BarChart3, Check, Flame, Handshake, Shield, Star, type LucideIcon } from 'lucide-react'
+import { BarChart3, Flame, Handshake, Shield, Star, type LucideIcon } from 'lucide-react'
 import Hero from '../components/Hero'
 import Reveal from '../components/Reveal'
 import Counter from '../components/Counter'
@@ -41,48 +41,37 @@ export default function Home() {
         </div>
       </div>
 
-      {/* about preview */}
-      <section>
-        <div className="container split">
-          <Reveal className="split-media">
-            <img
-              className="main-img"
-              src="/images/gas-plant.jpg"
-              alt="Refinery complex under a cloudy sky"
-              loading="lazy"
-            />
-            <img
-              className="float-img"
-              src="/images/workers.jpg"
-              alt="Field crew in hard hats reviewing a work site"
-              loading="lazy"
-            />
-            <div className="experience-chip">
-              <strong>Global</strong>
-              Five Operating Regions
-            </div>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <span className="kicker">About Us</span>
-            <h2 className="section-title">
-              Meridian Global Energy
-            </h2>
-            <p className="section-lede">
+      <section className="feature-band">
+        <div className="feature-panel">
+          <div className="feature-media">
+            <img src="/images/gas-plant.jpg" alt="Gas processing plant" loading="lazy" />
+          </div>
+          <div className="feature-copy rule-right">
+            <h2>Our company</h2>
+            <p>
               A global energy services company supporting operators across the Americas, Europe,
-              the Middle East, Africa and Asia-Pacific. Our work covers upstream, midstream and
-              downstream oil and gas, plus marine and energy logistics.
+              the Middle East, Africa and Asia-Pacific.
             </p>
-            <ul className="check-list">
-              <li><span className="tick" aria-hidden="true"><Check size={14} strokeWidth={3} /></span> Exceptional engineering, procurement and logistics services</li>
-              <li><span className="tick" aria-hidden="true"><Check size={14} strokeWidth={3} /></span> Asset buy-back and construction services</li>
-              <li><span className="tick" aria-hidden="true"><Check size={14} strokeWidth={3} /></span> Highest quality standard, utmost professionalism</li>
-              <li><span className="tick" aria-hidden="true"><Check size={14} strokeWidth={3} /></span> Client satisfaction at the centre of everything we do</li>
-            </ul>
-            <Link to="/about" className="btn btn-green">
-              Learn More <span className="arrow">→</span>
+            <Link to="/about" className="text-cta">
+              About us <span aria-hidden="true">→</span>
             </Link>
-          </Reveal>
+          </div>
+        </div>
+
+        <div className="feature-panel flip">
+          <div className="feature-copy rule-left">
+            <h2>Our services</h2>
+            <p>
+              Engineering, procurement, logistics, asset recovery and fuel supply for upstream,
+              midstream and downstream operations.
+            </p>
+            <Link to="/services" className="text-cta">
+              View services <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+          <div className="feature-media">
+            <img src="/images/workers.jpg" alt="Field crew reviewing a work site" loading="lazy" />
+          </div>
         </div>
       </section>
 
