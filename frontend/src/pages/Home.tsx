@@ -42,7 +42,7 @@ export default function Home() {
       </div>
 
       <section className="feature-band">
-        <div className="feature-panel">
+        <Reveal className="feature-panel">
           <div className="feature-media">
             <img src="/images/gas-plant.jpg" alt="Gas processing plant" loading="lazy" />
           </div>
@@ -56,9 +56,9 @@ export default function Home() {
               About us <span aria-hidden="true">→</span>
             </Link>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="feature-panel flip">
+        <Reveal className="feature-panel flip" delay={160}>
           <div className="feature-copy rule-left">
             <h2>Our services</h2>
             <p>
@@ -72,7 +72,7 @@ export default function Home() {
           <div className="feature-media">
             <img src="/images/workers.jpg" alt="Field crew reviewing a work site" loading="lazy" />
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* services */}

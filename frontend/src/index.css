@@ -649,6 +649,7 @@ section {
 .feature-band {
   background: #f3f4f3;
   padding: clamp(40px, 6vw, 72px) 0;
+  overflow: hidden;
 }
 
 .feature-panel {
@@ -664,11 +665,38 @@ section {
   margin-bottom: 0;
 }
 
+.feature-media {
+  overflow: hidden;
+  min-height: 300px;
+  height: 100%;
+}
+
 .feature-media img {
   width: 100%;
   height: 100%;
   min-height: 300px;
   object-fit: cover;
+  transform: scale(1.14);
+  transition: transform 1.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.feature-panel.flip .feature-media img {
+  transform: scale(1.14);
+}
+
+.feature-panel.reveal.visible .feature-media img {
+  transform: scale(1);
+  animation: feature-drift 18s ease-in-out 1.25s infinite alternate;
+}
+
+.feature-panel.reveal.visible:hover .feature-media img {
+  transform: scale(1.06);
+  animation: none;
+}
+
+@keyframes feature-drift {
+  from { transform: scale(1); }
+  to { transform: scale(1.045); }
 }
 
 .feature-copy {
@@ -693,6 +721,32 @@ section {
   margin-bottom: 14px;
 }
 
+.feature-panel.reveal .feature-copy h2,
+.feature-panel.reveal .feature-copy p,
+.feature-panel.reveal .feature-copy .text-cta {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.feature-panel.reveal.visible .feature-copy h2 {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.18s;
+}
+
+.feature-panel.reveal.visible .feature-copy p {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.32s;
+}
+
+.feature-panel.reveal.visible .feature-copy .text-cta {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.46s;
+}
+
 .feature-copy p {
   color: var(--body);
   font-size: 1.05rem;
@@ -715,8 +769,30 @@ section {
   padding-bottom: 6px;
 }
 
+.text-cta span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
 .text-cta:hover {
   color: var(--green-800);
+}
+
+.text-cta:hover span {
+  transform: translateX(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-panel.reveal,
+  .feature-panel.reveal .feature-media img,
+  .feature-panel.reveal .feature-copy h2,
+  .feature-panel.reveal .feature-copy p,
+  .feature-panel.reveal .feature-copy .text-cta {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
 }
 
 /* ---------- about preview / split layout ---------- */
